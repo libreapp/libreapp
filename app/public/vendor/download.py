@@ -1,3 +1,4 @@
+import glob
 import urllib.request
 
 
@@ -25,3 +26,11 @@ def main():
         # TODO check hash
         # TODO move to defined location
         # TODO extract
+
+
+def index_wheels():
+    """Create a json index of all the downloaded wheels
+    """
+    # TODO create index
+    # TODO hash index
+    # TODO save index with hash appended to filename
