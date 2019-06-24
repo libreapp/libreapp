@@ -1,0 +1,21 @@
+{
+  "python.linting.pylintUseMinimalCheckers": false,
+  "python.linting.mypyEnabled": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.insertSpaces": true,
+  "editor.rulers": [
+    79,
+    119
+  ],
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [
+      72,
+      79,
+      119
+    ]
+  }
+}

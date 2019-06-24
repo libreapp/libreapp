@@ -19,6 +19,3 @@ class AppRoot extends React.Component<IAppRootProps, IAppRootState> {
 }
 
 export default AppRoot;
-
-
-
