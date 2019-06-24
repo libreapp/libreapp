@@ -30,4 +30,6 @@ languagePluginLoader.then(() => {
   ])
 })
 
+let socket = new WebSocket("ws://localhost:8000/api");
+
 export default AppRoot;
