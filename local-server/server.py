@@ -1,3 +1,7 @@
+# TODO implement a watchdog instance
+# TODO set up Rx to observe watchdog events, subscribe websocket to observable
+
+
 import tornado.web
 import tornado.httpserver
 import tornado.ioloop
