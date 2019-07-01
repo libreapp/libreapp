@@ -1,5 +1,10 @@
 import glob
 import urllib.request
+import shutil
+import os
+from pathlib import Path
+import tarfile
+import json
 
 
 FILES_TO_DOWNLOAD = [
@@ -20,12 +25,20 @@ FILES_TO_DOWNLOAD = [
 
 # TODO call this function on `yarn bootstrap`
 def main():
-
     for item in FILES_TO_DOWNLOAD:
-        urllib.request.urlretrieve(item['url'])
+        filepath, headers = urllib.request.urlretrieve(item['url'])
+        print(headers)
         # TODO check hash
-        # TODO move to defined location
-        # TODO extract
+        filename = item['url'].split('/')[-1]
+
+        Path(item['location']).mkdir(exist_ok=True)
+        new_location = os.path.join(item['location'], filename)
+
+        shutil.move(filepath, new_location)
+
+        if item['extract']:
+            with tarfile.open(new_location, 'r:bz2') as tar:
+                tar.extractall()
 
 
 def index_wheels():
@@ -34,3 +47,10 @@ def index_wheels():
     # TODO create index
     # TODO hash index
     # TODO save index with hash appended to filename
+
+    with open('wheels/index.json', 'w') as a_file:
+        json.dump(["pydicom-1.2.0-py2.py3-none-any.whl"], a_file)
+
+
+if __name__ == "__main__":
+    main()
