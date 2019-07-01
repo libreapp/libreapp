@@ -39,7 +39,8 @@ def main():
 
         if item['extract']:
             with tarfile.open(new_location, 'r:bz2') as tar:
-                extract_dir = Path(os.path.splitext(new_location)[0])
+                assert new_location.endswith('.tar.bz2')
+                extract_dir = Path(new_location[:-8])
                 extract_dir.mkdir(exist_ok=True)
                 tar.extractall(path=extract_dir)
 
