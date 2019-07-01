@@ -40,6 +40,8 @@ def main():
             with tarfile.open(new_location, 'r:bz2') as tar:
                 tar.extractall()
 
+    index_wheels()
+
 
 def index_wheels():
     """Create a json index of all the downloaded wheels
