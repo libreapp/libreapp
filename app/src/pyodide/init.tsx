@@ -1,32 +1,11 @@
-import React from 'react';
-
-import {
-  Classes
-} from '@blueprintjs/core';
-
-import loadWheels from './python/load-wheels.py';
-
-
-interface IAppRootProps { }
-interface IAppRootState extends Readonly<{}> { }
+import loadWheels from './load-wheels.py';
 
 declare let languagePluginLoader: any;
 declare let pyodide: any;
 declare let Module: any;
 
-class AppRoot extends React.Component<IAppRootProps, IAppRootState> {
-  render() {
-    return (
-      <div className="AppRoot">
-
-      </div>
-    );
-  }
-}
-
 const pythonReady = languagePluginLoader.then(() => {
   return Promise.all([
-    pyodide.loadPackage(['matplotlib', 'numpy', 'pandas']),
     pyodide.runPython(loadWheels)
   ])
 })
@@ -46,9 +25,7 @@ socket.onmessage = (event) => {
 import pydicom
 repr(pydicom.dcmread('temp.dcm', force=True))`)
 
-    const root = document.getElementsByClassName("AppRoot")[0];
+    const root = document.getElementsByClassName("AppComponent")[0];
     root.innerHTML = header;
   })
 }
-
-export default AppRoot;

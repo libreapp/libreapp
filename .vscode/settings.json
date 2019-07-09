@@ -17,5 +17,11 @@
       79,
       119
     ]
-  }
+  },
+  "cSpell.words": [
+    "dcmread",
+    "pydicom",
+    "pyodide",
+    "repr"
+  ]
 }
