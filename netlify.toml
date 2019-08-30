@@ -1,3 +1,21 @@
 [build]
   command = "cd legacy && yarn && yarn build"
   publish = "legacy/build"
+
+[[redirects]]
+  from = "https://libreapp.netlify.com/*"
+  to = "https://libreapp.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://app.pymedphys.com/*"
+  to = "https://libreapp.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://libreapp.net/:splat"
+  to = "https://libreapp.net/:splat"
+  status = 301
+  force = true
