@@ -15,6 +15,12 @@ FILES_TO_DOWNLOAD = [
         "extract": False
     },
     {
+        "url": 'https://files.pythonhosted.org/packages/a0/35/dd97fbb48d4e6b5ae97307497e31e46691adc2feedb6279d29fc1c8ad9c1/ipykernel-5.1.1-py3-none-any.whl',
+        "hash": '346189536b88859937b5f4848a6fd85d1ad0729f01724a411de5cae9b618819c',
+        "location": 'wheels',
+        "extract": False
+    },
+    {
         "url": 'https://github.com/iodide-project/pyodide/releases/download/0.13.0/pyodide-build-0.13.0.tar.bz2',
         "hash": 'd8bb9ec31c87d80bcc4ed9f1477289b679b03ba4a082ebddde88f9416a92376a',
         "location": '.',
@@ -26,7 +32,7 @@ FILES_TO_DOWNLOAD = [
 # TODO call this function on `yarn bootstrap`
 def main():
     for item in FILES_TO_DOWNLOAD:
-        filepath, headers = urllib.request.urlretrieve(item['url'])
+        filepath, _ = urllib.request.urlretrieve(item['url'])
         # print(headers)
         # TODO check hash
         filename = item['url'].split('/')[-1]
@@ -55,7 +61,10 @@ def index_wheels():
     # TODO save index with hash appended to filename
 
     with open('wheels/index.json', 'w') as a_file:
-        json.dump(["pydicom-1.2.0-py2.py3-none-any.whl"], a_file)
+        json.dump([
+            "pydicom-1.2.0-py2.py3-none-any.whl",
+            "ipykernel-5.1.1-py3-none-any.whl"
+        ], a_file)
 
 
 if __name__ == "__main__":
